@@ -1,0 +1,89 @@
+$primary: #274E13;
+$secondary: #B6D9B7;
+$tertiary: #95A3A4;
+
+@mixin card($backgroundColor: #dedede) {
+    padding: 2.5em;
+    background-color: $backgroundColor;
+    border-radius: 2em;
+    margin-right: 2em;
+}
+
+h1{
+    color: $primary;
+}
+
+.btn{
+    background-color: $primary;
+    color: white;
+    text-decoration: none;
+    width: 3em;
+    height: 1.5em;
+    border-radius: 1em;
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.card {
+    @include card();
+}
+
+.error {
+    color: red;
+}
+
+.navbar {
+    height: 90vh;
+    border-radius: 1em;
+    width: 10em;
+    margin-top: 0.7em;
+    margin-left: 0.7em;
+    padding: 1em;
+    background-color: $primary;
+    float: left;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 84vw;
+    float: right;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em;
+    display: block;
+}
+
+table {
+    background-color: #dedede;
+    padding: 2em;
+    margin-top: 2em;
+    border-radius: 1em;
+    width: 82vw;
+    th{
+        text-align: left;
+    }
+}
+
+.sub-navbar {
+    margin-top: 3em;
+    display: block;
+    margin-bottom: 2em;
+}
+
+.inline-btn {
+    padding: 0.7em;
+    height: auto;
+    width: fit-content;
+    border: 0;
+    padding: 0.4em;
+    font-size: 0.8em;
+}
+
+.reefImage {
+    width: 15em;
+}

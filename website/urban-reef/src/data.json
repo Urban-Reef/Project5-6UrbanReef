@@ -1,0 +1,14 @@
+{
+    "reefs": [
+        {
+            "reefName": "Reef1A",
+            "image": "./UrbanReefLogo.png",
+            "active": "actief"
+        },
+        {
+            "reefName": "Reef1B",
+            "image": "./urbanreef.jpg",
+            "active": "non-actief"
+        }
+    ]
+}
