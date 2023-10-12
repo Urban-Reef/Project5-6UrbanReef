@@ -3,7 +3,9 @@
         {
             "reefName": "Reef1A",
             "image": "./UrbanReefLogo.png",
-            "active": "actief"
+            "active": "actief",
+            "data": {                
+            }
         },
         {
             "reefName": "Reef1B",

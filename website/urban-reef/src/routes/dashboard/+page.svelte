@@ -1,18 +1,17 @@
 <script lang="ts">
     import Card from "../card.svelte";
-    import Navbar from "../navbar.svelte";
     import * as reefData from "../../data.json";
     import Modal from "../modal.svelte";
 
     class Reef {
         reefName:string ="";
         image:string = "";
-        active:string = "";
+        humidity:string = "55";
+        temperture:string = "21";
 
-        constructor (reefname:string,image:string,active:string) {
+        constructor (reefname:string,image:string) {
             this.reefName = reefname;
             this.image = image;
-            this.active = active;
         }
     }
     
@@ -21,7 +20,7 @@
     function getReefs():Reef[] {
         let newReef:Reef[] = [];
         reefData.reefs.forEach((reef) => {
-            newReef.push(new Reef(reef.reefName,reef.image,reef.active));
+            newReef.push(new Reef(reef.reefName,reef.image));
         })
         return newReef;
     }
@@ -30,20 +29,24 @@
 
 </script>
 
-<Navbar></Navbar>
 <main class="container">
-    <div class="sub-navbar">
-        <button on:click={() => {showModal = true}} class="inline-btn btn">Reef toevoegen</button>
-    </div>
+    <nav class="navbar " style="background-color: rgba(0,0,0,0);" data-bs-theme="dark">
+        <button on:click={() => {showModal = true}} class="btn btn-outline-secondary">Reef toevoegen</button>
+        
+    </nav>
+      
+    <!-- Reef zoek optie toevoegen & kaart van reefs -->
+    <!-- 3D visualisatie van de reefs bv. locatie van sensoren en/of data 3D visualisatie -->
 
     <div class="container">
         {#if reefs.length === 0}
             <p>Er zijn geen reefs gevonden</p>
         {:else}
-            {#each reefs as {reefName,image,active}}
+            {#each reefs as {reefName,image,humidity,temperture}}
                 <Card {reefName}
                     {image}
-                    {active} />
+                    {humidity}
+                    {temperture} />
             {/each}
         {/if}
     </div>

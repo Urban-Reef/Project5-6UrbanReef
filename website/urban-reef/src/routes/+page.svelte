@@ -35,33 +35,4 @@
 
 <style lang="scss">
     @import '../style.scss';
-
-    .container {
-        background-image: url("/urbanreef.jpg");
-        width: 100vw;
-        height: 100vh;
-    }
-
-    .card{
-        margin-left: 30vw;
-        margin-top: 20Vh;
-        height: fit-content;
-    }
-    
-    p{
-        margin: 0;
-        margin-top: 1em;
-    }
-
-    input {
-        border: 1px solid $tertiary;
-        border-radius: 1em;
-        padding: 1em;
-        width: 30vw;
-        font-size: 1em;
-    }
-
-    .btn {
-        display: block;
-    }
 </style>
