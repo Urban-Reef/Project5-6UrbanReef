@@ -34,10 +34,10 @@
       </div>
 <Modal bind:showModal>
     <h1>{reefName}</h1>
-    <button class="btn btn-outline-success ">luchtvochtigheid</button>
-    <button class="btn btn-outline-success ">temperatuur</button>
-    <button class="btn btn-outline-success ">foto's</button>
-    <button class="btn btn-outline-success ">3D visualisatie</button>
+    <button class="btn custom-btn-outline">luchtvochtigheid</button>
+    <button class="btn custom-btn-outline">temperatuur</button>
+    <button class="btn custom-btn-outline">foto's</button>
+    <button class="btn custom-btn-outline">3D visualisatie</button>
     <!-- Grafiek van luchtvochtigheid + temperatuur -->
     <!-- Knoppen om de data van de afgelopen dag, week, maand tot nu te bekijken -->
 </Modal>

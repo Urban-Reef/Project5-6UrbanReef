@@ -4,13 +4,20 @@
             "reefName": "Reef1A",
             "image": "./UrbanReefLogo.png",
             "active": "actief",
-            "data": {                
-            }
+            "data": {   
+                "humidity": "54",
+                "temperture": "21"             
+            },
+            "timeOfData": ""
         },
         {
             "reefName": "Reef1B",
             "image": "./urbanreef.jpg",
-            "active": "non-actief"
+            "active": "non-actief",
+            "data": {   
+                "humidity": "0",
+                "temperture": "0"             
+            }
         }
     ]
 }

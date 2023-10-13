@@ -2,27 +2,21 @@
     import Card from "../card.svelte";
     import * as reefData from "../../data.json";
     import Modal from "../modal.svelte";
-
-    class Reef {
-        reefName:string ="";
-        image:string = "";
-        humidity:string = "55";
-        temperture:string = "21";
-
-        constructor (reefname:string,image:string) {
-            this.reefName = reefname;
-            this.image = image;
-        }
-    }
+    import { Reef } from "$lib/models/reef.model";
     
     let reefs:Reef[] = getReefs();
 
     function getReefs():Reef[] {
         let newReef:Reef[] = [];
         reefData.reefs.forEach((reef) => {
-            newReef.push(new Reef(reef.reefName,reef.image));
+            newReef.push(new Reef(reef.reefName,reef.image,reef.data?.humidity,reef.data?.temperture));
         })
         return newReef;
+    }
+
+    function goToSettings() {
+        window.location.href = "/user";
+        return;
     }
 
     let showModal = false;
@@ -30,9 +24,18 @@
 </script>
 
 <main class="container">
-    <nav class="navbar " style="background-color: rgba(0,0,0,0);" data-bs-theme="dark">
-        <button on:click={() => {showModal = true}} class="btn btn-outline-secondary">Reef toevoegen</button>
-        
+    <nav class="navbar custom-navbar" style="background-color: rgba(0,0,0,0);">
+        <button on:click={() => {showModal = true}} class="btn custom-btn-outline">Reef toevoegen</button>
+        <input type="search" class="search" placeholder="zoeken...">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <div class="nav-item" on:click={goToSettings}>
+            <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="none" height="256" width="256"/>
+                <circle cx="128" cy="128" fill="none" r="96" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                <circle cx="128" cy="120" fill="none" r="40" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+                <path d="M63.8,199.4a72,72,0,0,1,128.4,0" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></svg>
+        </div>
     </nav>
       
     <!-- Reef zoek optie toevoegen & kaart van reefs -->
@@ -57,6 +60,5 @@
 </Modal>
 
 <style>
-    @import '../../style.scss';
-
+    @import "../../style.scss";
 </style>
