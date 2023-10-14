@@ -15,6 +15,7 @@
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div on:click|stopPropagation>
 		<slot name="header" />
+		
 		<slot />
 	</div>
 </dialog>
@@ -22,7 +23,7 @@
 
 <style lang="scss">
 	dialog {
-		width: 32em;
+		width: fit-content;
 		border-radius: 0.2em;
 		border: none;
 		padding: 0;
