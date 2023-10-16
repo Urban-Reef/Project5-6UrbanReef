@@ -1,0 +1,26 @@
+<mat-card class="card">
+    <mat-card-header >
+       <h1 >Login UrbanReef</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <form (ngSubmit)="login()">
+            <mat-form-field appearance="outline">
+              <mat-label>Gebruikersnaam</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">Gebruik een geldig email adres aub</mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">Email is <strong>verplicht</strong></mat-error>
+            </mat-form-field>
+          
+            <mat-form-field appearance="outline">
+                <mat-label>Wachtwoord</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="passwordFormControl.hasError('required')">Wachtwoord is <strong>verplicht</strong></mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+            <mat-error *ngIf="loginForm.hasError('incorrectLogin')">Combinatie van gebruikersnaam en wachtwoord is incorrect</mat-error>
+        </form>   
+    </mat-card-content>
+</mat-card>
