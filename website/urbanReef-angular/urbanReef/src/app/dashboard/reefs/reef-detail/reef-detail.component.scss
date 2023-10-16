@@ -5,4 +5,28 @@ button {
 .card {
     margin-left: 5%;
     width: 90%;
+    margin-bottom: 3%;
+}
+
+.graph-container {
+    height: 30em;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    button {
+        width: 5em;
+        height: 5em;
+        .mat-icon {
+            transform: scale(1.5);
+        }
+    }
+}
+.image-gallery {
+    background-color: grey;
+    height: 13em;
+    width: 13em;
+    margin: 1em;
 }

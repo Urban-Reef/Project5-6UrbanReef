@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { reef } from 'src/models/reef.model';
+import { reef } from 'src/app/models/reef.model';
 
 @Component({
   selector: 'app-dashboard',

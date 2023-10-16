@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators, FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { RestService } from '../services/rest.service';
+import { Login } from '../models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent {
   passwordFormControl = new FormControl('', [Validators.required]);
   matcher = new LoginErrorStateMatcher();
 
-  constructor(private router : Router, private formBuilder: FormBuilder) {
+  constructor(private router : Router, private formBuilder: FormBuilder, private restService : RestService) {
     this.loginForm = this.formBuilder.group({
       email: this.emailFormControl,
       password: this.passwordFormControl,
@@ -23,11 +25,19 @@ export class LoginComponent {
   }
 
   login() {
-    if(this.emailFormControl.value === 'test@example.com' && this.passwordFormControl.value === 'welkom123') {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.loginForm.setErrors({ 'incorrectLogin': true });
-    }
+    let login = new Login();
+    
+    login.username = this.emailFormControl.value || "";
+    login.password = this.passwordFormControl.value || ""
+
+    this.restService.ValidateLogin(login)
+      .subscribe(response => {
+        if(response.status == 200) {
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.loginForm.setErrors({ 'incorrectLogin': true });
+        }
+      })
   }
 
   hide = true;

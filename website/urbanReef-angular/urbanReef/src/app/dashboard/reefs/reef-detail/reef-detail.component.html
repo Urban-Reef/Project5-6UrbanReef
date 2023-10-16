@@ -4,20 +4,29 @@
 </button>
 <mat-card class="card">
     <mat-card-header>
-        <h1>Reef 1A</h1>
+        <mat-card-title><h1>Reef 1A</h1></mat-card-title>
+        <mat-card-subtitle>Locatie:</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <mat-tab-group animationDuration="0ms">
             <mat-tab label="Luchtvochtigheid">
-                Grafiek
+                <div class="graph-container">
+                    Grafiek Luchtvochtigheid
+                </div>
             </mat-tab>
             <mat-tab label="Temperatuur">
-                Grafiek
+                <div class="graph-container">
+                    Grafiek Temperatuur
+                </div>
             </mat-tab>
         </mat-tab-group>
         <mat-divider></mat-divider>
+        <h2>Foto gallerij</h2>
         <div class="container">
-           
+            <img class="image-gallery" src="" alt="">
+            <button mat-mini-fab color="primary">
+                <mat-icon>add</mat-icon>
+            </button>
         </div>
     </mat-card-content>
 </mat-card>
