@@ -17,5 +17,5 @@ export class ReefDetailComponent {
     private service: reefService
   ) {}
 
-  
+  Items:string[] = ["ehllo", "secondPhotos"];
 }

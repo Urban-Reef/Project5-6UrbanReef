@@ -1,1 +1,23 @@
-<p>reef-detail works!</p>
+<button mat-raised-button color="primary" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >
+    <mat-icon>keyboard_backspace</mat-icon>
+    Terug naar het dashboard
+</button>
+<mat-card class="card">
+    <mat-card-header>
+        <h1>Reef 1A</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Luchtvochtigheid">
+                Grafiek
+            </mat-tab>
+            <mat-tab label="Temperatuur">
+                Grafiek
+            </mat-tab>
+        </mat-tab-group>
+        <mat-divider></mat-divider>
+        <div class="container">
+           
+        </div>
+    </mat-card-content>
+</mat-card>

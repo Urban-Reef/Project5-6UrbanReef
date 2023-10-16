@@ -5,19 +5,19 @@
     <button mat-mini-fab color="primary" aria-label="user icon" class="user-icon">
         <mat-icon>account_circle</mat-icon>
     </button>
-    <button mat-button>Afmelden</button>
+    <button mat-button [routerLink]="['']" routerLinkActive="router-link-active" >Afmelden</button>
 </mat-toolbar>
 
-<mat-card class="card">
+<mat-card *ngFor="let element of reefs" class="card">
     <mat-card-header>
         <div mat-card-avatar>
-            <button mat-mini-fab color="primary">
+            <button mat-mini-fab color="primary" [routerLink]="['/reef/:element.id']" routerLinkActive="router-link-active" >
                 <mat-icon>read_more</mat-icon> 
             </button>
         </div>
         <mat-card-title> 
-            ReefName</mat-card-title>
-        <mat-card-subtitle>Temperatuur: 0&deg; | Luchtvochtigheid: 0%</mat-card-subtitle>
+            {{ element.name }}</mat-card-title>
+        <mat-card-subtitle>Temperatuur: {{ element.currentTemperature }}&deg; | Luchtvochtigheid: {{ element.currentHumidity }}%</mat-card-subtitle>
         <mat-card-actions align="end">
             <button mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>
@@ -27,7 +27,7 @@
                   <mat-icon>drive_file_rename_outline</mat-icon>
                   <span>Reef hernoemen</span>
                 </button>
-                <button mat-menu-item>
+                <button mat-menu-item >
                   <mat-icon color="warn">delete</mat-icon>
                   <span>Reef verwijderen</span>
                 </button>
