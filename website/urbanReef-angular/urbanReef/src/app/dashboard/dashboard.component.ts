@@ -7,8 +7,8 @@ import { reef } from 'src/app/models/reef.model';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  reefs:reef[] = [new reef(1,"Reef 1A", "Green house", 55, 21),
-                  new reef(2,"Reef 1B", "Green house", 60, 22)]
+  reefs:reef[] = [new reef(1,"Reef 1A",["source"] ,"Green house", 55, 21),
+                  new reef(2,"Reef 1B",[] ,"Green house", 60, 22)]
   filteredReefsList:reef[] = [];
 
   getAllReefs():reef[] {
