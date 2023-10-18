@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select'; 
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,6 +47,10 @@ import { AddUserComponent } from './add-user/add-user.component';
     MatMenuModule,
     ReefsModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

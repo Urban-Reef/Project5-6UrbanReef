@@ -9,28 +9,23 @@ import { AddReefComponent } from './add-reef/add-reef.component';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
-    title: 'Login'
+    component: LoginComponent
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
-    title: 'Dashboard'
+    component: DashboardComponent
   },
   {
     path: 'userdetails',
-    component: UserDetailsComponent,
-    title: 'User details'
+    component: UserDetailsComponent
   },
   {
     path: 'adduser',
-    component: AddUserComponent,
-    title: 'Add User'
+    component: AddUserComponent
   },
   {
     path: 'addreef',
-    component: AddReefComponent,
-    title: 'Add reef'
+    component: AddReefComponent
   },
 ];
 

@@ -31,7 +31,42 @@
 }
 
 .card {
-    width: 95%;
-    margin-left: 2em;
+    width: 40%;
+    padding-left: 2em;
+    margin-left: 30%;
     margin-top: 1em;
+}
+
+.form-field {
+    margin-right: 5em;
+    width: 40em;
+}
+
+label.label input[type="file"] {
+    position: absolute;
+    top: -1000px;
+}
+
+.label {
+    cursor: pointer;
+    width: 15em;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 0;
+    background: #dddddd;
+    display: inline-block;
+}
+
+.label:hover {
+    background: #ccc;
+}
+
+.confirmation {
+    margin-top: 2em;
+    font-size: 1em;
+    margin-right: 2em;
+}
+
+.add {
+    margin-right: 60%;
 }
