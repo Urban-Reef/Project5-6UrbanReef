@@ -26,13 +26,14 @@ export class LoginComponent {
 
   login() {
     let login = new Login();
-    
+
     login.username = this.emailFormControl.value || "";
     login.password = this.passwordFormControl.value || ""
 
     this.restService.ValidateLogin(login)
       .subscribe(response => {
-        if(response.status == 200) {
+        const status = response.status;
+        if(status === 200) {
           this.router.navigate(['/dashboard']);
         } else {
           this.loginForm.setErrors({ 'incorrectLogin': true });
