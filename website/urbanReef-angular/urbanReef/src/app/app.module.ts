@@ -18,13 +18,17 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReefsModule } from './dashboard/reefs/reefs.module';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { AddReefComponent } from './add-reef/add-reef.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AddReefComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

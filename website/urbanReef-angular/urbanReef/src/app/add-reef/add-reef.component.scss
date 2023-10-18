@@ -19,19 +19,19 @@
 }
 
 .user-icon {
-    margin-left: 60%;
+    margin-left: 70%;
     .mat-icon {
         transform: scale(2);
     }
+}
+
+.active {
+    border-bottom: 1px solid white;
+    border-radius: 0;
 }
 
 .card {
     width: 95%;
     margin-left: 2em;
     margin-top: 1em;
-}
-
-.active {
-    border-bottom: 1px solid white;
-    border-radius: 0;
 }
