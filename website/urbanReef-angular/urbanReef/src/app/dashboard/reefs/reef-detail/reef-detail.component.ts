@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from "@angular/common";
 import { reefService } from '../reefs.service';
 import { PlotlyDirective } from 'src/app/shared/plotly.directive';
 import { reef } from 'src/app/models/reef.model';
@@ -11,7 +12,9 @@ import { reef } from 'src/app/models/reef.model';
 })
 
 
-export class ReefDetailComponent {
+export class ReefDetailComponent implements OnInit {
+  reef: reef | undefined;
+
   humidityPlot: Plotly.Data[] = [
     {
       type: 'scatter',
@@ -20,12 +23,22 @@ export class ReefDetailComponent {
     },
   ];
 
+  ngOnInit(): void {
+    this.getReef();
+  }
+
+  getReef(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.reefService.getReef(id).subscribe(reef => this.reef = reef);
+  }
+
   reefData:reef = new reef(0,"Reef 1A", ["source", "source"] ,"Green house", 55,21);
 
-  constructor(  
+
+  constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: reefService
+    private reefService: reefService
   ) {}
 
 }

@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu'; 
+import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select'; 
+import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,10 +18,12 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ReefsModule } from './dashboard/reefs/reefs.module';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AddReefComponent } from './add-reef/add-reef.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import {ReefDetailComponent} from "./dashboard/reefs/reef-detail/reef-detail.component";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AddUserComponent } from './add-user/add-user.component';
     DashboardComponent,
     UserDetailsComponent,
     AddReefComponent,
-    AddUserComponent
+    AddUserComponent,
+    ReefDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -45,12 +48,11 @@ import { AddUserComponent } from './add-user/add-user.component';
     ReactiveFormsModule,
     MatListModule,
     MatMenuModule,
-    ReefsModule,
     HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
-    
-
+    MatTabsModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,29 +2,31 @@
     <mat-icon>keyboard_backspace</mat-icon>
     Terug naar het dashboard
 </button>
-<mat-card class="card">
-    <mat-card-header>
-        <mat-card-title><h1>{{ reefData.name }}</h1></mat-card-title>
-        <mat-card-subtitle>Locatie: {{ reefData.location }}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <mat-tab-group animationDuration="1ms">
-            <mat-tab label="Luchtvochtigheid">
-                <div class="graph-container"></div>
-            </mat-tab>
-            <mat-tab label="Temperatuur">
-                <div class="graph-container">
-                    Grafiek Temperatuur
-                </div>
-            </mat-tab>
-        </mat-tab-group>
-        <mat-divider></mat-divider>
-        <h2>Foto gallerij</h2>
-        <div class="container">
-            <img class="image-gallery" src="{{ photo }}" alt="" *ngFor="let photo of reefData.pictures">
-            <button mat-mini-fab color="primary">
-                <mat-icon>add</mat-icon>
-            </button>
-        </div>
-    </mat-card-content>
-</mat-card>
+<div *ngIf="reef">
+  <mat-card class="card">
+      <mat-card-header>
+          <mat-card-title><h1>{{ reef.name }}</h1></mat-card-title>
+          <mat-card-subtitle>Locatie: {{ reef.location }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-tab-group animationDuration="1ms">
+              <mat-tab label="Luchtvochtigheid">
+                  <div class="graph-container"></div>
+              </mat-tab>
+              <mat-tab label="Temperatuur">
+                  <div class="graph-container">
+                      Grafiek Temperatuur
+                  </div>
+              </mat-tab>
+          </mat-tab-group>
+          <mat-divider></mat-divider>
+          <h2>Foto gallerij</h2>
+          <div class="container">
+              <img class="image-gallery" src="{{ photo }}" alt="" *ngFor="let photo of reef.pictures">
+              <button mat-mini-fab color="primary">
+                  <mat-icon>add</mat-icon>
+              </button>
+          </div>
+      </mat-card-content>
+  </mat-card>
+</div>

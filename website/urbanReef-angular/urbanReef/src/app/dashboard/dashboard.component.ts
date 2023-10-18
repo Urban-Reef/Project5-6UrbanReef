@@ -1,21 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { reef } from 'src/app/models/reef.model';
+import {reefService} from "./reefs/reefs.service";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  reefs:reef[] = [new reef(1,"Reef 1A",["source"] ,"Green house", 55, 21),
-                  new reef(2,"Reef 1B",[] ,"Green house", 60, 22)]
+export class DashboardComponent implements OnInit {
+  reefs: reef[] = [];
   filteredReefsList:reef[] = [];
 
-  getAllReefs():reef[] {
-    let allReefs:reef[] = [];
+  constructor(private reefService: reefService) { }
 
+  ngOnInit() {
+    this.getReefs();
+  }
 
-    return allReefs;
+  getReefs(): void {
+    this.reefService.getReefs().subscribe(reefs => this.reefs = reefs);
   }
 
   filterReefs(searchText:string) {
@@ -23,7 +26,7 @@ export class DashboardComponent {
       this.filteredReefsList = this.reefs;
       return;
     }
-    this.filteredReefsList = this.reefs.filter( current => 
+    this.filteredReefsList = this.reefs.filter( current =>
       current?.name.toLowerCase().includes(searchText.toLowerCase()));
   }
 }
