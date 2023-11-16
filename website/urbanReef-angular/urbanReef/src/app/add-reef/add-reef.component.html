@@ -50,10 +50,10 @@
         <p>
             <label class="label">
                 <input type="file" required/>
-                <span>Selcteer foto's</span>
+                <span>Selecteer foto's</span>
             </label>
         </p>
         <button mat-raised-button color="primary" class="confirmation add">Reef toevoegen</button>
-        <button mat-raised-button color="warn" class="confirmation">Cancel</button>
+        <button mat-raised-button color="warn" class="confirmation" [routerLink]="['/dashboard']">Cancel</button>
     </mat-card-content>
 </mat-card>
