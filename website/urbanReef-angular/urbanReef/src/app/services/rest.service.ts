@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders, HttpErrorResponse, HttpRequest, HttpParams, Htt
 import { catchError, map } from 'rxjs/operators';
 import { Observable , throwError } from 'rxjs';
 import { Login } from '../models/login.model';
+import { reef } from '../models/reef.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,17 @@ export class RestService {
           return throwError(error);
         })
       );
+  }
+
+  AddReef(reef: reef): Observable<HttpResponse<any>> {
+    const headers = new HttpHeaders({'content-type': 'application/json'});
+    const body = JSON.stringify(reef);
+    return this.httpClient.post(`${this.REST_API}/create_reef`, body, {'headers': headers, observe: 'response'})
+    .pipe(
+      catchError((error) => {
+        console.error('An error occurred', error);
+        return throwError(error);
+      })
+    );
   }
 }
