@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "urbanReef:build:production"
+              "buildTarget": "urbanReef:build:production"
             },
             "development": {
-              "browserTarget": "urbanReef:build:development"
+              "buildTarget": "urbanReef:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "urbanReef:build"
+            "buildTarget": "urbanReef:build"
           }
         },
         "test": {

@@ -12,13 +12,11 @@ export class AddReefComponent {
   reefForm: FormGroup;
   nameFormControl = new FormControl('', [Validators.required]);
   LocationFormControl = new FormControl('', [Validators.required]);
-  PhotoFormControl = new FormControl('',[Validators.required]);
 
-  constructor(private rest: RestService, private formBuilder: FormBuilder, private formGroup:FormGroup) {
+  constructor(private rest: RestService, private formBuilder: FormBuilder) {
     this.reefForm = this.formBuilder.group({
       name: this.nameFormControl,
       location: this.LocationFormControl,
-      photos: this.PhotoFormControl,
     });
   }
     
@@ -26,8 +24,7 @@ export class AddReefComponent {
     let newReef:reef;
     let reefName = this.nameFormControl.value || "";
     let reefLocation = this.LocationFormControl.value || "";
-    let reefPhotos = [""];
-    newReef = new reef(reefName, reefPhotos, reefLocation,0,0);
+    newReef = new reef(reefName, [""], reefLocation,0,0);
 
     this.rest.AddReef(newReef);
   }

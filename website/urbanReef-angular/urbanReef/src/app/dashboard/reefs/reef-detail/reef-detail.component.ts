@@ -15,14 +15,6 @@ import { reef } from 'src/app/models/reef.model';
 export class ReefDetailComponent implements OnInit {
   reef: reef | undefined;
 
-  humidityPlot: Plotly.Data[] = [
-    {
-      type: 'scatter',
-      x: [0,1,2,3],
-      y: [10,20,30,40]
-    },
-  ];
-
   ngOnInit(): void {
     this.getReef();
   }
@@ -32,7 +24,7 @@ export class ReefDetailComponent implements OnInit {
     this.reefService.getReef(id).subscribe(reef => this.reef = reef);
   }
 
-  reefData:reef = new reef(0,"Reef 1A", ["source", "source"] ,"Green house", 55,21);
+  reefData:reef = new reef("Reef 1A", ["source", "source"] ,"Green house", 55,21,0);
 
 
   constructor(
