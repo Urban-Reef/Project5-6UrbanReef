@@ -38,4 +38,25 @@ export class RestService {
       })
     );
   }
+
+  GetReefById(id: number): Observable<any> {
+    const headers = new HttpHeaders({'content-type': 'application/json'});
+    const body = JSON.stringify({id: id});
+    console.log(body);
+    return this.httpClient.post(`${this.REST_API}/retrieve_reef`, body, {'headers': headers, observe: 'response'})
+      .pipe(
+        map(data => {
+          return data;
+        })
+      )
+  }
+
+  GetReefs(): Observable<any> {
+    return this.httpClient.get(`${this.REST_API}/retrieve_reefs`, {observe: 'response'})
+      .pipe(
+        map(data => {
+          return data;
+        })
+      )
+  }
 }
