@@ -24,7 +24,7 @@ export class ReefDetailComponent implements OnInit {
     this.reefService.getReef(id).subscribe(reef => this.reef = reef);
   }
 
-  reefData:reef = new reef("Reef 1A", ["source", "source"] ,"Green house", 55,21,0);
+  reefData:reef = new reef("Reef 1A", ["source", "source"] ,"Green house", 55,21,true,0);
 
 
   constructor(

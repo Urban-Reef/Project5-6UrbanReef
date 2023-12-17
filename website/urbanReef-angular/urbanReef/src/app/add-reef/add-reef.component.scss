@@ -5,24 +5,14 @@
     }
 }
 
-.search {
-    margin-left: 2em;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    border: 0;
-}
-
 .nav-icon {
     height: 3em;
     margin-left: 2em;
-    margin-right: 2em;
+    margin-right: 1em;
 }
 
-.user-icon {
-    margin-left: 70%;
-    .mat-icon {
-        transform: scale(2);
-    }
+.logout {
+    margin-left: 63%;
 }
 
 .active {
@@ -39,7 +29,7 @@
 
 .form-field {
     margin-right: 5em;
-    width: 40em;
+    width: 95%;
 }
 
 label.label input[type="file"] {
@@ -62,11 +52,10 @@ label.label input[type="file"] {
 }
 
 .confirmation {
-    margin-top: 2em;
     font-size: 1em;
     margin-right: 2em;
 }
 
 .add {
-    margin-right: 60%;
+    float: left;
 }

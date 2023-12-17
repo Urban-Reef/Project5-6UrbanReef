@@ -3,23 +3,10 @@
     <button mat-button class="active">Dashboard</button>
     <button mat-button [routerLink]="['/addreef']" routerLinkActive="router-link-active" >Reef toevoegen</button>
     <input class="search" type="search" placeholder="Zoeken naar reef"/>
-    <button mat-mini-fab color="primary" aria-label="user icon" class="user-icon" [matMenuTriggerFor]="userMenu">
-        <mat-icon>account_circle</mat-icon>
+    <button mat-button [routerLink]="['']" routerLinkActive="router-link-active" >
+        <mat-icon>logout</mat-icon>
+        <span>Afmelden</span>
     </button>
-    <mat-menu #userMenu="matMenu" xPosition="before">
-        <button mat-menu-item [routerLink]="['/userdetails']" routerLinkActive="router-link-active" >
-          <mat-icon>person</mat-icon>
-          <span>Gebruikersinformatie</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/adduser']" routerLinkActive="router-link-active" >
-            <mat-icon>person_add</mat-icon>
-            <span>Gebruiker toevoegen</span>
-          </button>
-        <button mat-menu-item [routerLink]="['']" routerLinkActive="router-link-active" >
-          <mat-icon>logout</mat-icon>
-          <span>Afmelden</span>
-        </button>
-    </mat-menu>
 </mat-toolbar>
 
 <mat-card *ngFor="let element of reefs" class="card">
