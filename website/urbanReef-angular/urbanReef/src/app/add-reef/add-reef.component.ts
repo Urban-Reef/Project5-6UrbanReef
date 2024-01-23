@@ -24,7 +24,7 @@ export class AddReefComponent {
     let newReef:reef;
     let reefName = this.nameFormControl.value || "";
     let reefLocation = this.LocationFormControl.value || "";
-    newReef = new reef(reefName, [""], reefLocation,0,0, false);
+    newReef = new reef(reefName, reefLocation, false);
     this.rest.AddReef(newReef).subscribe();
   }
 } 

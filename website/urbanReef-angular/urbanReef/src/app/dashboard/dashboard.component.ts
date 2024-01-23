@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { reef } from 'src/app/models/reef.model';
 import {reefService} from "./reefs/reefs.service";
+import { RestService } from '../services/rest.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,14 +12,22 @@ export class DashboardComponent implements OnInit {
   reefs: reef[] = [];
   filteredReefsList:reef[] = [];
 
-  constructor(private reefService: reefService) { }
+  constructor(private reefService: reefService, private rest: RestService) { }
 
   ngOnInit() {
     this.getReefs();
   }
 
   getReefs(): void {
-    this.reefService.getReefs().subscribe(reefs => this.reefs = reefs);
+    this.rest.GetReefs().subscribe(data => this.reefs = data.body);
+  }
+
+  deleteReefAtId(id: number | undefined): void {
+    if(id === undefined) {
+      return;
+    }
+    this.rest.DeleteReefById(id).subscribe();
+    window.location.reload();
   }
 
   filterReefs(searchText:string) {

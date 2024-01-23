@@ -2,6 +2,7 @@
     <mat-icon>keyboard_backspace</mat-icon>
     Terug naar het dashboard
 </button>
+
 <div *ngIf="reef">
   <mat-card class="card">
       <mat-card-header>
@@ -12,8 +13,7 @@
           <mat-tab-group animationDuration="1ms">
               <mat-tab label="Luchtvochtigheid">
                   <div class="graph-container">
-                    <iframe src="http://145.24.222.136:8300/d-solo/f7164d79-51d0-413d-acd3-3175beae49ea/urban-reef-sensor-data?orgId=1&refresh=5s&from=1701339586577&to=1701340486577&theme=light&panelId=3" width="100%" height="100%" frameborder="0"></iframe>
-                  </div>
+                    <iframe src="http://145.24.222.136:8300/d-solo/f7164d79-51d0-413d-acd3-3175beae49ea/urban-reef-sensor-data?orgId=1&refresh=5s&from=1706004996230&to=1706005896230&theme=light&panelId=3" width="100%" height="100%" frameborder="0"></iframe>                  </div>
               </mat-tab>
               <mat-tab label="Temperatuur">
                   <div class="graph-container">
@@ -21,14 +21,6 @@
                   </div>
               </mat-tab>
           </mat-tab-group>
-          <mat-divider></mat-divider>
-          <h2>Foto gallerij</h2>
-          <div class="container">
-              <img class="image-gallery" src="{{ photo }}" alt="" *ngFor="let photo of reef.pictures">
-              <button mat-mini-fab color="primary">
-                  <mat-icon>add</mat-icon>
-              </button>
-          </div>
       </mat-card-content>
   </mat-card>
 </div>

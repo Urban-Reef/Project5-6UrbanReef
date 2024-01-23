@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Observable , throwError } from 'rxjs';
 import { Login } from '../models/login.model';
 import { reef } from '../models/reef.model';
+import { user } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,49 @@ export class RestService {
         return throwError(error);
       })
     );
+  }
+
+  AddUser(user:user): Observable<HttpResponse<any>> {
+    const body = JSON.stringify(user);
+    console.log(body);
+    return this.httpClient.post(`${this.REST_API}/create_user`, body, {'headers': this.headers, observe: 'response'})
+    .pipe(
+      catchError((error) => {
+        console.error('An error occurred', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  GetReefById(id: number): Observable<any> {
+    const headers = new HttpHeaders({'content-type': 'application/json'});
+    const body = JSON.stringify({id: id});
+    return this.httpClient.post(`${this.REST_API}/retrieve_reef`, body, {'headers': headers, observe: 'response'})
+      .pipe(
+        map(data => {
+          return data;
+        })
+      )
+  }
+
+  GetReefs(): Observable<any> {
+    return this.httpClient.get(`${this.REST_API}/retrieve_reefs`, {observe: 'response'})
+      .pipe(
+        map(data => {
+          return data;
+        })
+      )
+  }
+
+  DeleteReefById(id: number): Observable<HttpResponse<any>> {
+    const headers = new HttpHeaders({'content-type': 'application/json'});
+    const body = JSON.stringify({id: id});
+    return this.httpClient.post(`${this.REST_API}/remove_reef`, body, {'headers': headers, observe: 'response'})
+      .pipe(
+        catchError((error) => {
+          console.error('An error occurred: ', error)
+          return throwError(error);
+        })
+      )
   }
 }

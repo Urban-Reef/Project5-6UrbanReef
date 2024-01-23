@@ -4,20 +4,11 @@ export class user {
     password:string = "";
     role:string = "";
 
-    constructor(email:string, name:string, role:string){
+    constructor(email:string, name:string, role:string, password:string){
         this.email = email;
         this.name = name;
         this.role = role;
-        this.password = this.passGenerator();
+        this.password = password;
     }
 
-    private passGenerator():string {
-        let outString: string = '';
-        let inOptions: string = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_-!';
-
-        for (let i = 0; i < 5; i++) {
-            outString += inOptions.charAt(Math.floor(Math.random() * inOptions.length));
-        }
-        return outString;
-    }
 }

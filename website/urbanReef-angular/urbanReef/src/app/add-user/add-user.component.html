@@ -6,10 +6,6 @@
         <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #userMenu="matMenu" xPosition="before">
-        <button mat-menu-item [routerLink]="['/userdetails']" routerLinkActive="router-link-active" >
-          <mat-icon>person</mat-icon>
-          <span>Gebruikersinformatie</span>
-        </button>
         <button mat-menu-item [routerLink]="['/adduser']" routerLinkActive="router-link-active" >
             <mat-icon>person_add</mat-icon>
             <span>Gebruiker toevoegen</span>
@@ -26,28 +22,33 @@
         <h1>Gebruiker toevoegen</h1>
     </mat-card-header>
     <mat-card-content>
-        <p>
-            <mat-form-field appearance="outline" class="form-field">
-                <mat-label>Email</mat-label>
-                <input matInput>
+        <form (ngSubmit)="addUser()">
+            <mat-form-field appearance="outline"  class="form-field">
+                <mat-label>Voor- en achternaam</mat-label>
+                <input matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="nameFormControl.hasError('required')">De naam is <strong>verplicht</strong></mat-error>
             </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field appearance="outline" class="form-field">
-                <mat-label>Voor- en Achternaam</mat-label>
-                <input matInput>
+            <mat-form-field appearance="outline"  class="form-field">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">Gebruik een geldig email adres aub</mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">Email is <strong>verplicht</strong></mat-error>
             </mat-form-field>
-        </p>
-        <p>
-            <mat-form-field class="form-field">
+            <mat-form-field appearance="outline"  class="form-field">
+                <mat-label>Wachtwoord</mat-label>
+                <input matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="passwordFormControl.hasError('required')">Wachtwoord is <strong>verplicht</strong></mat-error>
+            </mat-form-field>
+            *Let op! Onthoud dit wachtwoord goed
+    
+            <mat-form-field class="form-field"  class="form-field">
                 <mat-label>Rol</mat-label>
-                <mat-select>
-                  <mat-option value="user">User</mat-option>
-                  <mat-option value="admin">Admin</mat-option>
+                <mat-select matInput [formControl]="nameFormControl">
+                <mat-option value="user">User</mat-option>
+                <mat-option value="admin">Admin</mat-option>
                 </mat-select>
-              </mat-form-field>
-        </p>
-        <button mat-raised-button color="primary" class="confirmation add">Gebruiker toevoegen</button>
-        <button mat-raised-button color="warn" class="confirmation" [routerLink]="['/dashboard']">Cancel</button>
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="confirmation add" onclick="addUser()">Gebruiker toevoegen</button>
+        </form>
     </mat-card-content>
 </mat-card>
