@@ -32,7 +32,7 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item >
+                <button mat-menu-item (click)="deleteReefAtId(element.id)">
                   <mat-icon color="warn">delete</mat-icon>
                   <span>Reef verwijderen</span>
                 </button>
