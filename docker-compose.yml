@@ -1,0 +1,65 @@
+version: '3.3'
+services:
+  node:
+    build: node/.
+    restart: always
+    ports:
+      - '8080:8080'
+      - '8443:433'
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: urban-admin
+      # You can use whatever password you like
+      MYSQL_PASSWORD: welcome12345
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: welcome12345
+    ports:
+      # <Port exposed> : <MySQL Port running inside container>
+      - 8306:3306
+    expose:
+      # Opens port 3306 on the container
+      - 8306
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    environment:
+      - INFLUXDB_DB=urbanreef
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin_password
+      - INFLUXDB_USER=urbanuser
+      - INFLUXDB_USER_PASSWORD=user_password 
+    volumes:
+      - influx-data:/var/lib/influxdb
+
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+    - 8300:3000
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin_password
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+# Names our volume
+volumes:
+  my-db:
+  node:
+    driver: local
+  grafana-storage:
+  influx-data:
